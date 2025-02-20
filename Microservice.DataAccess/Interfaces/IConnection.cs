@@ -1,6 +1,6 @@
 ﻿using LinqToDB;
 using LinqToDB.Data;
-
+using System.Threading.Tasks;
 
 namespace MicroServices.DataAccess.Interfaces
 {
@@ -25,5 +25,14 @@ namespace MicroServices.DataAccess.Interfaces
         /// <param name="query">The SQL query string.</param>
         /// <param name="timeout">Query timeout in seconds (default 55s).</param>
         Task ExecuteQueryAsync(string query, int timeout = 55);
+
+        /// <summary>
+        /// Executes a raw SQL query that returns a scalar value asynchronously.
+        /// </summary>
+        /// <typeparam name="T">The expected return type of the scalar value.</typeparam>
+        /// <param name="query">The SQL query string.</param>
+        /// <param name="timeout">Query timeout in seconds (default 55s).</param>
+        /// <returns>The scalar result of the query.</returns>
+        Task<T?> ExecuteScalarAsync<T>(string query, int timeout = 55);
     }
 }
