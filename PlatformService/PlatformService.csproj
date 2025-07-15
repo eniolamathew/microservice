@@ -4,7 +4,21 @@
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>ca4525fb-8c6a-483a-ada2-ab35111beaac</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Models\NewFolder2\**" />
+    <Compile Remove="Models\NewFolder\**" />
+    <Content Remove="Models\NewFolder2\**" />
+    <Content Remove="Models\NewFolder\**" />
+    <EmbeddedResource Remove="Models\NewFolder2\**" />
+    <EmbeddedResource Remove="Models\NewFolder\**" />
+    <None Remove="Models\NewFolder2\**" />
+    <None Remove="Models\NewFolder\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="12.0.1" />
@@ -22,21 +36,26 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="9.0.0" />
+    <PackageReference Include="Polly" Version="8.5.2" />
+    <PackageReference Include="Scrutor" Version="6.0.1" />
     <PackageReference Include="Serilog" Version="4.2.0" />
     <PackageReference Include="Serilog.Sinks.Console" Version="6.0.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\Domain\" />
-    <Folder Include="Models\Entities\" />
-    <Folder Include="Models\Validatiors\" />
+    <Folder Include="Models\Validators\" />
+    <Folder Include="Mutable\" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Microservice.DataAccess\Microservice.DataAccess.csproj" />
-    <ProjectReference Include="..\DatabaseMigrationLib\DatabaseMigrationLib.csproj" />
+	<ProjectReference Include="..\DatabaseMigrationLib\DatabaseMigrationLib.csproj" />
+	<ProjectReference Include="..\MicroServices.API\MicroServices.API.csproj" />
+	<ProjectReference Include="..\MicroServices.Caching\MicroServices.Caching.csproj" />
+    <ProjectReference Include="..\MicroServices.Shared\MicroServices.Shared.csproj" />
   </ItemGroup>
-	
+
 
 </Project>

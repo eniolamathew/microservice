@@ -1,0 +1,6 @@
+@MicroServices.Caching_HostAddress = http://localhost:5062
+
+GET {{MicroServices.Caching_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
