@@ -1,5 +1,6 @@
 ﻿using LinqToDB;
 using LinqToDB.Data;
+using System.Data;
 using System.Threading.Tasks;
 
 namespace MicroServices.DataAccess.Interfaces
@@ -20,6 +21,15 @@ namespace MicroServices.DataAccess.Interfaces
         Task CommitTransactionAsync(DataConnectionTransaction transaction);
 
         /// <summary>
+        /// bulk insert logic
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="entities"></param>
+        /// <returns></returns>
+        Task BulkInsertAsync<T>(IEnumerable<T> entities) where T : class;
+
+
+        /// <summary>
         /// Executes a raw SQL query asynchronously.
         /// </summary>
         /// <param name="query">The SQL query string.</param>
@@ -34,5 +44,10 @@ namespace MicroServices.DataAccess.Interfaces
         /// <param name="timeout">Query timeout in seconds (default 55s).</param>
         /// <returns>The scalar result of the query.</returns>
         Task<T?> ExecuteScalarAsync<T>(string query, int timeout = 55);
+
+
+        // Add the method signature for transactions
+        Task ExecuteInTransactionAsync(Func<Task> repositoryMethod, IsolationLevel isolationLevel = IsolationLevel.Serializable, int maxRetries = 6, int timeOutRetries = 0);
+        Task<T> ExecuteInTransactionAsync<T>(Func<Task<T>> repositoryMethod, IsolationLevel isolationLevel = IsolationLevel.ReadCommitted, int maxRetries = 3);
     }
 }

@@ -9,20 +9,28 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlatformService", "Platform
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservice.DataAccess", "Microservice.DataAccess\Microservice.DataAccess.csproj", "{BC94EF4F-2A0D-4E5F-ADF6-06A354282223}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroServices.API", "MicroServices.API\MicroServices.API.csproj", "{0C576611-6B5E-4C91-9771-C63047593992}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroServices.Shared", "MicroServices.Shared\MicroServices.Shared.csproj", "{6F0DF21A-3786-4452-9ED2-7A6AD51651F1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroServices.Test", "MicroServices.Test\MicroServices.Test.csproj", "{A57352FD-2ADA-4B28-9754-A29C8E6C7A34}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseMigrationLib", "DatabaseMigrationLib\DatabaseMigrationLib.csproj", "{AF8D70C9-86E4-480E-8BF6-9AEFE16384F6}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{81DDED9D-158B-E303-5F62-77A2896D2A5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupplierService", "SupplierService\SupplierService.csproj", "{B3568D4E-BEA4-4779-B180-6EA6D025B0C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroServices.API", "MicroServices.API\MicroServices.API.csproj", "{F846AEB7-C0BA-4D1D-A57D-BB169C6363CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroServices.Caching", "MicroServices.Caching\MicroServices.Caching.csproj", "{0AA1165F-F5A5-48C1-81B0-81CE869CC4D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrandService", "BrandService\BrandService.csproj", "{FA880171-B9CB-4234-8911-FA38A0CE856B}"
+EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
 	ProjectSection(SolutionItems) = preProject
-		.gitattributes = .gitattributes
-		.gitignore = .gitignore
-		docker-compose.yml = docker-compose.yml
+		Directory.Build.props = Directory.Build.props
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbMigrationRunner", "DbMigrationRunner\DbMigrationRunner.csproj", "{9D280CE0-03BD-4B68-8B6E-B4F6F24EE443}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,10 +50,6 @@ Global
 		{BC94EF4F-2A0D-4E5F-ADF6-06A354282223}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC94EF4F-2A0D-4E5F-ADF6-06A354282223}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC94EF4F-2A0D-4E5F-ADF6-06A354282223}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0C576611-6B5E-4C91-9771-C63047593992}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0C576611-6B5E-4C91-9771-C63047593992}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0C576611-6B5E-4C91-9771-C63047593992}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0C576611-6B5E-4C91-9771-C63047593992}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6F0DF21A-3786-4452-9ED2-7A6AD51651F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6F0DF21A-3786-4452-9ED2-7A6AD51651F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F0DF21A-3786-4452-9ED2-7A6AD51651F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -58,6 +62,30 @@ Global
 		{AF8D70C9-86E4-480E-8BF6-9AEFE16384F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF8D70C9-86E4-480E-8BF6-9AEFE16384F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF8D70C9-86E4-480E-8BF6-9AEFE16384F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3568D4E-BEA4-4779-B180-6EA6D025B0C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3568D4E-BEA4-4779-B180-6EA6D025B0C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3568D4E-BEA4-4779-B180-6EA6D025B0C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3568D4E-BEA4-4779-B180-6EA6D025B0C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F846AEB7-C0BA-4D1D-A57D-BB169C6363CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F846AEB7-C0BA-4D1D-A57D-BB169C6363CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F846AEB7-C0BA-4D1D-A57D-BB169C6363CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F846AEB7-C0BA-4D1D-A57D-BB169C6363CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AA1165F-F5A5-48C1-81B0-81CE869CC4D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AA1165F-F5A5-48C1-81B0-81CE869CC4D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AA1165F-F5A5-48C1-81B0-81CE869CC4D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AA1165F-F5A5-48C1-81B0-81CE869CC4D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA880171-B9CB-4234-8911-FA38A0CE856B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA880171-B9CB-4234-8911-FA38A0CE856B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA880171-B9CB-4234-8911-FA38A0CE856B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA880171-B9CB-4234-8911-FA38A0CE856B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D280CE0-03BD-4B68-8B6E-B4F6F24EE443}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D280CE0-03BD-4B68-8B6E-B4F6F24EE443}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D280CE0-03BD-4B68-8B6E-B4F6F24EE443}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D280CE0-03BD-4B68-8B6E-B4F6F24EE443}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

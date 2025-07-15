@@ -6,4 +6,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+	<ItemGroup>
+		<None Update="appsettings.Development.json">
+			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
 </Project>
