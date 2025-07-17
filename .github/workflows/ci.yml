@@ -29,7 +29,7 @@ jobs:
         run: docker compose logs
 
       - name: Run tests
-        run: dotnet test --no-build
+        run: dotnet test ./MicroServices.Test/MicroServices.Test.csproj --no-build
 
       - name: Shut down containers
         run: docker compose down
