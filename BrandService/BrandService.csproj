@@ -24,4 +24,8 @@
     <ProjectReference Include="..\MicroServices.Shared\MicroServices.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+	<Content Remove="**/appsettings*.json" />
+  </ItemGroup>
+
 </Project>

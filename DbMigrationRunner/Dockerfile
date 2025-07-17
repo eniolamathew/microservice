@@ -30,14 +30,14 @@ RUN dotnet build "./DbMigrationRunner.csproj" -c $BUILD_CONFIGURATION -o /app/bu
 # Publish stage
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./DbMigrationRunner.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "./DbMigrationRunner.csproj" -c $BUILD_CONFIGURATION -o /app/dbmigration_publish /p:UseAppHost=false
 
 # Final stage
 FROM base AS final
 WORKDIR /app
 
 # Copy published app
-COPY --from=publish /app/publish .
+COPY --from=publish /app/dbmigration_publish .
 
 # Copy scripts from the build context (correct path)
 COPY --from=build /staging/Scripts /app/Scripts
