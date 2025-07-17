@@ -7,12 +7,6 @@ BEGIN
         CREATE ROLE platforms WITH LOGIN PASSWORD 'your_secure_password';
         COMMENT ON ROLE platforms IS 'Application role for platform services';
     END IF;
-    
-    -- Ensure the "platform" database exists
-    IF NOT EXISTS (SELECT 1 FROM pg_database WHERE datname = 'platform') THEN
-        CREATE DATABASE platform;
-        COMMENT ON DATABASE platform IS 'Database for platform services';
-    END IF;
 
     -- Grant privileges to "platforms" role on "platform" database
     GRANT ALL PRIVILEGES ON DATABASE platform TO platforms;

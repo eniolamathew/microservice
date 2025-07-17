@@ -22,11 +22,11 @@ jobs:
       - name: Start containers
         run: docker compose -f docker-compose.yml up -d
 
-      - name: Show DB logs
-        run: docker compose logs
-
       - name: Wait for DB to be ready
         run: sleep 15
+      
+      - name: Show DB logs
+        run: docker compose logs
 
       - name: Run tests
         run: dotnet test --no-build
