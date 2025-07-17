@@ -61,7 +61,7 @@ services:
     volumes:
       - ./PlatformService/Scripts:/app/Scripts
       - ./PlatformService/Mutable:/app/Mutable
-      - "/c/Users/ogund/.aspnet/https:/https:ro"  
+      - ./https:/https:ro
     networks:
       - platform_net
     depends_on:
@@ -113,7 +113,7 @@ services:
     volumes:
       - ./BrandService/Scripts:/app/Scripts
       - ./BrandService/Mutable:/app/Mutable
-      - "/c/Users/ogund/.aspnet/https:/https:ro"
+      - ./https:/https:ro
     networks:
       - brand_net
     depends_on:

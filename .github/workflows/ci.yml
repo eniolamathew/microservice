@@ -15,6 +15,11 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '9.0.x'
+      
+      - name: Generate dev cert
+        run: |
+          mkdir -p ./https
+          dotnet dev-certs https -ep ./https/aspnetapp.pfx -p platformcert
 
       - name: Build containers
         run: docker compose -f docker-compose.yml build
