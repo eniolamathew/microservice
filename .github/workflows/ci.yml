@@ -18,8 +18,9 @@ jobs:
       
       - name: Generate dev cert
         run: |
-          mkdir -p ./https
-          dotnet dev-certs https -ep ./https/aspnetapp.pfx -p platformcert
+            mkdir -p ./https
+            dotnet dev-certs https -ep ./https/aspnetapp.pfx -p platformcert
+            chmod 644 ./https/aspnetapp.pfx
 
       - name: Build containers
         run: docker compose -f docker-compose.yml build
