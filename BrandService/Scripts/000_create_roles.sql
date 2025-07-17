@@ -7,12 +7,6 @@ BEGIN
         CREATE ROLE brands WITH LOGIN PASSWORD 'your_secure_password';
         COMMENT ON ROLE brands IS 'Application role for brand services';
     END IF;
-    
-    -- Ensure the "brand" database exists
-    IF NOT EXISTS (SELECT 1 FROM pg_database WHERE datname = 'brands') THEN
-        CREATE DATABASE brand;
-        COMMENT ON DATABASE brand IS 'Database for brand services';
-    END IF;
 
     -- Grant privileges to "brands" role on "brand" database
     GRANT ALL PRIVILEGES ON DATABASE brand TO brands;

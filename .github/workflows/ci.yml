@@ -1,0 +1,41 @@
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+      
+      - name: Generate dev cert
+        run: |
+            mkdir -p ./https
+            dotnet dev-certs https -ep ./https/aspnetapp.pfx -p platformcert
+            chmod 644 ./https/aspnetapp.pfx
+
+      - name: Build containers
+        run: docker compose -f docker-compose.yml build
+
+      - name: Start containers
+        run: docker compose -f docker-compose.yml up -d
+
+      - name: Wait for DB to be ready
+        run: sleep 15
+      
+      - name: Show DB logs
+        run: docker compose logs
+
+      - name: Run tests
+        run: dotnet test ./MicroServices.Test/MicroServices.Test.csproj
+
+      - name: Shut down containers
+        run: docker compose down
