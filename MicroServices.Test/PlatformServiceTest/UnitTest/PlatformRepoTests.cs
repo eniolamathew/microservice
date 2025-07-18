@@ -1,17 +1,9 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
 using Moq;
 using NUnit.Framework;
 using PlatformService.Interfaces;
 using PlatformService.Models.Domain;
 using PlatformService.Repo;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
-using MicroServices.API.Common;
 using System.Data;
 using MicroServices.DataAccess.Interfaces;
 using PlatformService.Models.Entities;

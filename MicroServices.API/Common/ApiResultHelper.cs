@@ -8,7 +8,7 @@ namespace MicroServices.API.Common
 {
     public static class ApiResultHelper
     {
-        public static ApiResult<T> SuccessResult<T>(T data, string message = null, int statusCode = 200)
+        public static ApiResult<T> SuccessResult<T>(T data, string? message = null, int statusCode = 200)
         {
             return new ApiResult<T>(statusCode, true, data, message);
         }

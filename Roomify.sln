@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservice.DataAccess", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroServices.Shared", "MicroServices.Shared\MicroServices.Shared.csproj", "{6F0DF21A-3786-4452-9ED2-7A6AD51651F1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroServices.Test", "MicroServices.Test\MicroServices.Test.csproj", "{A57352FD-2ADA-4B28-9754-A29C8E6C7A34}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Micro.Test", "MicroServices.Test\Micro.Test.csproj", "{A57352FD-2ADA-4B28-9754-A29C8E6C7A34}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseMigrationLib", "DatabaseMigrationLib\DatabaseMigrationLib.csproj", "{AF8D70C9-86E4-480E-8BF6-9AEFE16384F6}"
 EndProject
@@ -40,6 +40,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{
 	ProjectSection(SolutionItems) = preProject
 		ci.yml = ci.yml
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MicroServices.Test", "MicroServices.Test", "{A3DC4440-FE36-49F0-92F1-6D9283D371CC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PlatformServiceTest", "PlatformServiceTest", "{413C2E54-0FE2-4BB2-A0CA-4A5C7D4E7C5F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -101,6 +105,7 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{FC16D3DB-C8B9-4171-9412-0EEABCD675F3} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{413C2E54-0FE2-4BB2-A0CA-4A5C7D4E7C5F} = {A3DC4440-FE36-49F0-92F1-6D9283D371CC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {502B3410-B111-4768-B845-2DD3C9D31259}

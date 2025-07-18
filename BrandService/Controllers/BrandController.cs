@@ -150,7 +150,7 @@ namespace BrandService.Controllers
             await _brandRepo.DeleteBrandAsync(id);
 
             // Return success response with no data
-            var successResult = ApiResultHelper.SuccessResult<string>(null, "Brand deleted successfully", 204);
+            var successResult = ApiResultHelper.SuccessResult<string?>(null, "Brand deleted successfully", 204);
             return Ok(successResult); // Return Ok with ApiResult
         }
     }
