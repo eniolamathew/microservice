@@ -8,12 +8,12 @@ namespace MicroServices.API.Common
 {
     public class ApiResult<T>
     {
-        public int StatusCode { get; set; }
-        public bool IsSuccess { get; set; }
-        public T Payload { get; set; }
-        public string Message { get; set; }
+        public int StatusCode { get; }
+        public bool IsSuccess { get; }
+        public T? Payload { get; }
+        public string? Message { get; }
 
-        public ApiResult(int statusCode, bool isSuccess, T payload, string message = null)
+        public ApiResult(int statusCode, bool isSuccess, T? payload, string? message = null)
         {
             StatusCode = statusCode;
             IsSuccess = isSuccess;

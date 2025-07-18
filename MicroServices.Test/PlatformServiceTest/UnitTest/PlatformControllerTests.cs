@@ -141,22 +141,33 @@ namespace MicroServices.Test.PlatformServiceTest.UnitTest
         public async Task DeletePlatform_ReturnsOk_WhenPlatformDeleted()
         {
             // Arrange
-            var platform = new PlatformDomainEntity { Id = 1, Name = "name_test", Description = "description_test", Price = 0, Owner = "owner_test", IsDeleted = false };
+            var platform = new PlatformDomainEntity
+            {
+                Id = 1,
+                Name = "name_test",
+                Description = "description_test",
+                Price = 0,
+                Owner = "owner_test",
+                IsDeleted = false
+            };
             _platformRepoMock.Setup(r => r.GetPlatformByIdAsync(It.IsAny<int>())).ReturnsAsync(platform);
 
             // Act
             var result = await _controller.DeletePlatform(1);
 
-            // Assert
+            // Assert HTTP response is OK (200)
             var okResult = result as OkObjectResult;
             Assert.That(okResult, Is.Not.Null);
             Assert.That(okResult!.StatusCode, Is.EqualTo(200));
 
+            // Assert payload inside
             var apiResult = okResult.Value as ApiResult<string>;
             Assert.That(apiResult, Is.Not.Null);
             Assert.That(apiResult!.IsSuccess, Is.True);
             Assert.That(apiResult.Message, Is.EqualTo("Platform deleted successfully"));
-            Assert.That(apiResult.StatusCode, Is.EqualTo(204)); 
+
+            // Here is the logical status INSIDE payload:
+            Assert.That(apiResult.StatusCode, Is.EqualTo(204));
             Assert.That(apiResult.Payload, Is.Null);
         }
     }
